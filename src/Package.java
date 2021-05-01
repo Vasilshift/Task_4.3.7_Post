@@ -1,9 +1,7 @@
 /*Класс, который задает посылку. У посылки есть текстовое описание содержимого и целочисленная ценность.*/
-
-public static class Package {
+public class Package {
     private final String content;
     private final int price;
-
     public Package(String content, int price) {
         this.content = content;
         this.price = price;

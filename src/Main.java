@@ -1,5 +1,6 @@
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.*;
 public class Main {
     public static final String AUSTIN_POWERS = "Austin Powers";
     public static final String WEAPONS = "weapons";
@@ -44,5 +45,7 @@ public class Main {
                     + " Цена=" + ((MailPackage) p).getContent().getPrice()));
         }
     }
+
+
 
 }

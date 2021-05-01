@@ -1,6 +1,6 @@
 /*Письмо, у которого есть текст, который можно получить с помощью метода `getMessage`*/
 
-public class MailMessage {
+public class MailMessage extends AbstractSendable {
     private final String message;
 
     public MailMessage(String from, String to, String message) {
@@ -25,4 +25,11 @@ public class MailMessage {
         return true;
     }
 
+    public String getTo() {
+        return getTo();
+    }
+
+    public String getFrom() {
+        return getFrom();
+    }
 }
