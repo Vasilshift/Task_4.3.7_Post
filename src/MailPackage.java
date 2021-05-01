@@ -24,4 +24,6 @@ public class MailPackage extends AbstractSendable{
 
         return true;
     }
+
+
 }

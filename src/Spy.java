@@ -7,10 +7,10 @@ Detected target mail correspondence: from {from} to {to} "{message}"
 import java.util.logging.*;
 public class Spy implements MailService{
     public static final String AUSTIN_POWERS = "Austin Powers";
-    private Logger loggerX;
-    private static final Logger logger = Logger.getLogger(Spy.class.getName());
+    private Logger logger;
+    //private static final Logger logger = Logger.getLogger(Spy.class.getName());
     public Spy(Logger logger) {
-        this.loggerX = logger;
+        this.logger = logger;
     }
     @Override
     public Sendable processMail(Sendable mail) {
@@ -21,13 +21,13 @@ public class Spy implements MailService{
             MailMessage mailMessage = (MailMessage) mail;
             to = mail.getTo();
             from = mail.getFrom();
-            //message = mailMessage.getMessage();
-            if (AUSTIN_POWERS.equals(to) || AUSTIN_POWERS.equals(from)){
-
-                logger.log(Level.WARNING, "Detected target mail correspondence: from {0} to {1} \"{2}\"",
-                        new Object[] {from, to, mailMessage.getMessage()});
+            message = mailMessage.getMessage();
+            if (from.equals(AUSTIN_POWERS) || to.equals(AUSTIN_POWERS)){
+                logger.log(Level.WARNING,
+                    "Detected target mail correspondence: from " + from + "to" + to + " \"" + mailMessage.getMessage() + "\"",
+                        new Object[] {from, to, message});
             }else {
-                logger.log(Level.INFO,"Usual correspondence: from {0} to {1}",new Object[] {from,to});
+                logger.log(Level.INFO,"Usual correspondence: from " + from + "to" + to, new Object[] {from,to});
             }
         }
         return mail;

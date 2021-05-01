@@ -28,24 +28,27 @@ public class Main {
                 new MailMessage(AUSTIN_POWERS, "Психиатр", "Помогите"),
         };
 
-        for (AbstractSendable p : correspondence) {
-            try {
-                print("До:  ", p);
-                Sendable sendable = worker.processMail(p);
-                print("После:  ", sendable);
-            } catch (StolenPackageException | IllegalPackageException e) {
-                logger.log(Level.WARNING, "из: " + p.getFrom() + " куда: " + p.getTo() + " Содержимое: "
-                        + (p instanceof MailMessage ? ((MailMessage) p).getMessage() : ((MailPackage) p).getContent().getContent()
-                        + " Цена=" + ((MailPackage) p).getContent().getPrice()) + " Exceptions: " + e);
-            }
-        }
-        public static void print(String prefix, Sendable p) {
-            System.out.println(prefix + "из: " + p.getFrom() + " куда: " + p.getTo() + " Содержимое: "
-                    + (p instanceof MailMessage ? ((MailMessage) p).getMessage() : ((MailPackage) p).getContent().getContent()
-                    + " Цена=" + ((MailPackage) p).getContent().getPrice()));
-        }
+//        for (AbstractSendable p : correspondence) {
+//            try {
+//                print("До:  ", p);
+//                Sendable sendable = worker.processMail(p);
+//                print("После:  ", sendable);
+//            } catch (StolenPackageException | IllegalPackageException e) {
+//                logger.log(Level.WARNING, "из: " + p.getFrom() + " куда: " + p.getTo() + " Содержимое: "
+//                        + (p instanceof MailMessage ? ((MailMessage) p).getMessage() : ((MailPackage) p).getContent().getContent()
+//                        + " Цена=" + ((MailPackage) p).getContent().getPrice()) + " Exceptions: " + e);
+//            }
+//        }
+//        public static void print(String prefix, Sendable p) {
+//            System.out.println(prefix + "из: " + p.getFrom() + " куда: " + p.getTo() + " Содержимое: "
+//                    + (p instanceof MailMessage ? ((MailMessage) p).getMessage() : ((MailPackage) p).getContent().getContent()
+//                    + " Цена=" + ((MailPackage) p).getContent().getPrice()));
+//        }
     }
 
+    private static void print(String s, AbstractSendable p) {
+        System.out.println();
+    }
 
 
 }
